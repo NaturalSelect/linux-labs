@@ -8,7 +8,8 @@ ZIMAGE = $(KDIR)/arch/$(ARCH)/boot/$(b)zImage
 KCONFIG = $(KDIR)/.config
 NTTCP = $(KDIR)/tools/labs/templates/assignments/6-e100/nttcp
 
-YOCTO_URL = http://downloads.yoctoproject.org/releases/yocto/yocto-2.3/machines/qemu/qemu$(ARCH)/
+# http://downloads.yoctoproject.org/releases/yocto/yocto-2.3/machines/qemu/qemux86/core-image-minimal-qemux86.ext4
+YOCTO_URL = https://mirrors.kernel.org/yocto/yocto/yocto-2.7/machines/qemu/qemu$(ARCH)/
 YOCTO_IMAGE = core-image-minimal-qemu$(ARCH).ext4
 #YOCTO_IMAGE = core-image-minimal-dev-qemu$(ARCH).ext4
 #YOCTO_IMAGE = core-image-sato-dev-qemu$(ARCH).ext4
@@ -24,6 +25,7 @@ QEMU_OPTS = -kernel $(ZIMAGE) \
 	-drive file=$(YOCTO_IMAGE),if=virtio,format=raw \
 	-drive file=disk1.img,if=virtio,format=raw \
 	-drive file=disk2.img,if=virtio,format=raw \
+	-drive file=mydisk.img,if=virtio,format=raw \
 	--append "root=/dev/vda loglevel=15 console=hvc0 pci=noacpi" \
 	--display $(QEMU_DISPLAY) -s -m 256
 
@@ -74,7 +76,7 @@ lkt-tap-smbd:
 
 
 nttcp-run: $(NTTCP) lkt-tap1
-	$(NTTCP) -v -i &
+			$(NTTCP) -v -i &
 
 pipe1.in:
 	mkfifo $@
