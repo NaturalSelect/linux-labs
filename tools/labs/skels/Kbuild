@@ -13,3 +13,4 @@ obj-m += ./kernel_api/4-list/
 obj-m += ./kernel_api/5-list-full/
 obj-m += ./kernel_api/6-list-sync/
 obj-m += ./kernel_api/7-list-test/
+obj-m += ./device_drivers/kernel/
