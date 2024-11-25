@@ -15,3 +15,6 @@ obj-m += ./kernel_api/6-list-sync/
 obj-m += ./kernel_api/7-list-test/
 obj-m += ./device_drivers/kernel/
 obj-m += ./interrupts/
+obj-m += ./deferred_work/1-2-timer/
+obj-m += ./deferred_work/3-4-5-deferred/kernel/
+obj-m += ./deferred_work/6-kthread/
